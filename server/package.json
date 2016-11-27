@@ -1,0 +1,19 @@
+{
+  "name": "sonolumin-server",
+  "version": "0.0.1",
+  "description": "SonoLumin Server",
+  "main": "server.js",
+  "scripts": {
+    "nodemon": "nodemon --watch"
+  },
+  "author": "Caleb Astey",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "md5": "^2.2.1",
+    "mongoose": "^4.7.0",
+    "nodemon": "^1.11.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "SonoLumin",
+  "description": "Burst Media Bubbles",
+  "version": "0.0.1",
+  "icons": {
+    "16": "img/bubble_16.png",
+    "48": "img/bubble_48.png",
+    "128": "img/bubble_128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_popup": "main.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
