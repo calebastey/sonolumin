@@ -1,37 +1,57 @@
 <html>
 <head>
     <title>Report</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 </head>
-<script type="text/javascript" src="popup.js"></script>
 <body>
-<h1> Report </h1>
+<div class="container">
+    <h2>Report A Conflicting Account</h2>
 
-<div id="report-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="report-body">
 
-    <label for="sourceUrl">
-        Source URL:
-        <input type="text" name="sourceUrl" id="sourceUrl" disabled />
-    </label>
+                <div class="form-group">
+                    <label for="sourceUrl">
+                        Source URL:
+                    </label>
+                    <input type="text" name="sourceUrl" id="sourceUrl" class="form-control" disabled/>
 
-    <label for="text">
-        Text:
-        <textarea rows="4" cols="50" name="text" id="text" disabled> </textarea>
-    </label>
+                </div>
 
-    <label for="conflictingUrl">
-        Conflicting Url:
-        <input type="text" name="conflictingUrl" id="conflictingUrl" />
-    </label>
+                <div class="form-group">
+                    <label for="text">
+                        Text:
+                    </label>
+                    <textarea rows="4" cols="50" name="text" id="text" class="form-control" disabled> </textarea>
 
-    <label for="reporter">
-        Reporter:
-        <input type="text" name="reporter" id="reporter" />
-    </label>
+                </div>
 
-    <input type="submit" name="Submit" id="submit" />
+                <div class="form-group">
+                    <label for="conflictingUrl">
+                        Conflicting Url:
+                    </label>
+                    <input type="text" name="conflictingUrl" id="conflictingUrl" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="reportedBy">
+                        Reporter:
+                    </label>
+                    <input type="text" name="reportedBy" id="reportedBy" class="form-control" disabled/>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="Submit" id="submit" class="btn btn-submit"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
-
-
+<script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="popup.js"></script>
 </body>
 
 </html>

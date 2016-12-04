@@ -3,14 +3,38 @@
  */
 var clickHandler = function (e) {
 
-    // The srcUrl property is only available for image elements.
-    var new_page = 'report.html';
+    var new_page = 'report.html?id=';
 
-    // Create a new window to the info page.
-    chrome.windows.create({url: new_page, width: 800, height: 600});
+    // TODO: Convert to promises
+    //
+    chrome.tabs.executeScript( {
+        code: "window.getSelection().toString();"
+    }, function(sel) {
+        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+
+            var partial = {
+                sourceUrl: tabs[0].url,
+                text: sel[0],
+                reportedBy: 'test'
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/api/partial",
+                data: partial,
+                dataType: 'json',
+                success: function(result) {
+                    var url = new_page + result.id;
+                    chrome.windows.create({url: url, width: 800, height: 600})
+                },
+                error: function(request, status, error) {
+                    alert("Error " + request.responseText + "Status: " + status);
+                }
+            });
+
+        });
+    });
 };
-
-
 
 /**
  * Create a context menu which will only show up for highlighted text

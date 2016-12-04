@@ -1,7 +1,8 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    reportController = require('./app/controllers/ReportController.js');
+    reportController = require('./app/controllers/ReportController.js'),
+    partialController = require('./app/controllers/PartialController.js');
 
 mongoose.Promise = require('bluebird');
 
@@ -21,6 +22,8 @@ app.use('/api', router);
 router.post('/report', reportController.createReport);
 router.get('/reports', reportController.getAllReports);
 router.get('/reports/:id', reportController.getReport);
+router.post('/partial', partialController.createPartial);
+router.get('/partial/:id', partialController.getPartial);
 
 app.listen(port, function() {
     console.log('listening on 3000')
